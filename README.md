@@ -1,2 +1,2 @@
-#Sistem Pendaftaran Siswa 
+Sistem Pendaftaran Siswa 
 Menggunakan php native
