@@ -22,4 +22,4 @@ if (isset($_POST['username']) && ($_POST['password'])) {
     $_SESSION['pesan'] = "Username atau password tidak boleh kosong";
 }
 
-header("location:pages/beranda.php");
+header("location:pages/beranda_siswa.php");

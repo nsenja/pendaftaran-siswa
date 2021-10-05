@@ -115,10 +115,10 @@
                     </div>
                 </div>
                 <div class="profile-section">
-                    <p class="font-weight-light mb-0 font-18">Sandra Phillip</p>
-                    <span class="op-7 font-14">Admin</span>
+                    <p class="font-weight-light mb-0 font-18">Hai</p>
+                    <span class="op-7 font-14">Siswa</span>
                     <div class="row border-top border-bottom mt-3 no-gutters">
-                    <div class="col-4 border-right">
+                        <div class="col-4 border-right">
                             <a class="p-3 d-block menubar-height" id="bell"
                                 data-display="static" role="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false" >
@@ -137,7 +137,6 @@
                                 data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span><i data-feather="message-square" class="svg-icon op-7"></i></span>
                             </a>
-                      
                         </div>
                     </div>
                 </div>
@@ -149,21 +148,15 @@
                     <ul id="sidebarnav">
                         <li class="nav-small-cap"><span class="hide-menu">Pages</span></li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="beranda.php" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link" href="beranda_siswa.php" aria-expanded="false">
                                 <i data-feather="home" class="feather-icon"></i>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="siswa.php" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link" href="form_siswa.php" aria-expanded="false">
                                 <i data-feather="users" class="feather-icon"></i>
                                 <span class="hide-menu">Pendaftaran</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="user.php" aria-expanded="false">
-                                <i data-feather="grid" class="feather-icon"></i>
-                                <span class="hide-menu">Data Siswa</span>
                             </a>
                         </li>
                     </ul>
@@ -189,7 +182,7 @@
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
-                                    <li class="breadcrumb-item"><a href="pages/beranda.php" class="text-muted">SMA Negeri Malang</a>
+                                    <li class="breadcrumb-item"><a href="pages/beranda_siswa.php" class="text-muted">SMA Negeri Malang</a>
                                     </li>
                                 </ol>
                             </nav>
@@ -207,12 +200,13 @@
                 <!-- *************************************************************** -->
                 <!-- Start Earnings & Carousel Widget -->
                 <!-- *************************************************************** -->
-              
+
+
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title mb-4">Data Siswa</h4>
+                                <h4 class="card-title mb-4">Hasil Seleksi</h4>
                                 <div class="table-responsive">
                                     <table class="table no-wrap v-middle mb-0">
                                         <thead>
@@ -220,8 +214,8 @@
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead class="thead-light">
-                                    <tr>
-                                   
+                                        <tr>
+                                           
                                             <th scope="col">Nomor Induk Siswa</th>
                                             <th scope="col">Nama</th>
                                             <th scope="col">Tempat Lahir</th>
@@ -230,48 +224,55 @@
                                             <th scope="col">Asal Sekolah</th>
                                             <th scope="col">Alamat</th>
                                             <th scope="col">Nilai</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col">Status</th>
+                                            <!-- <th scope="col">Action</th> -->
                                         </tr>
 
                                         <tbody>
 
-<?php
-include ('../config.php');
-$sql = "SELECT * FROM calon_siswa ORDER BY nama";
-$query = mysqli_query($db, $sql);
+                                        <?php
+                                        include '../config.php';
+                                        $sql = "SELECT * FROM calon_siswa ORDER BY nama";
+                                        $query = mysqli_query($db, $sql);
 
-while($siswa = mysqli_fetch_array($query)){
-    echo "<tr>";
-  
-    echo "<td>".$siswa['nis']."</td>";
-    echo "<td>".$siswa['nama']."</td>";
-    echo "<td>".$siswa['tempat_lahir']."</td>";
-    echo "<td>".$siswa['tgl_lahir']."</td>";
-    echo "<td>".$siswa['jenis_kelamin']."</td>";
-    echo "<td>".$siswa['asal_sekolah']."</td>";
-    echo "<td>".$siswa['alamat']."</td>";
-    echo "<td>".$siswa['nilai']."</td>";
+                                        while ($siswa = mysqli_fetch_array($query)) {
+                                            echo "<tr>";
+                                            
+                                            echo "<td>" . $siswa['nis'] . "</td>";
+                                            echo "<td>" . $siswa['nama'] . "</td>";
+                                            echo "<td>" . $siswa['tempat_lahir'] . "</td>";
+                                            echo "<td>" . $siswa['tgl_lahir'] . "</td>";
+                                            echo "<td>" . $siswa['jenis_kelamin'] . "</td>";
+                                            echo "<td>" . $siswa['asal_sekolah'] . "</td>";
+                                            echo "<td>" . $siswa['alamat'] . "</td>";
+                                            echo "<td>" . $siswa['nilai'] . "</td>";
+                                            echo "<td>" . $siswa['status'] . "</td>";
 
-    echo "<td>";
-    echo "<a href='siswa-edit.php?nis=".$siswa['nis']."'>Edit</a> | ";
-    echo "<a href='../proses/siswa-hapus-proses.php?nis=".$siswa['nis']."'>Hapus</a>";
-    echo "</td>";
+                                            echo "<td>";
+                                            // echo "<a href='siswa-edit.php?id=" . $siswa['id'] . "'>Edit</a> | ";
+                                            // echo "<a href='/proses/siswa-hapus-proses.php?id=" . $siswa['id'] . "'>Hapus</a>";
+                                            echo "</td>";
 
-    echo "</tr>";
-}
-?>
+                                            echo "</tr>";
+                                        }
+                                        ?>
 
-</tbody>
-</table>
+                                        </tbody>
+                                        </table>
 
-<p>Total: <?php echo mysqli_num_rows($query) ?></p>
+                                        <p>Total: <?php echo mysqli_num_rows($query) ?></p>
                                     </thead>
                                     <tbody>
+                                       
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                                
+
+                <!-- *************************************************************** -->
+                <!-- End Top Leader Table -->
+                <!-- *************************************************************** -->
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->

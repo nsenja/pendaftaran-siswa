@@ -118,18 +118,18 @@
                     <p class="font-weight-light mb-0 font-18">Sandra Phillip</p>
                     <span class="op-7 font-14">Admin</span>
                     <div class="row border-top border-bottom mt-3 no-gutters">
-                        <div class="col-4 border-right">
-                        <a class="p-3 d-block menubar-height" href="login.php" id="bell"
+                    <div class="col-4 border-right">
+                            <a class="p-3 d-block menubar-height" id="bell"
                                 data-display="static" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                <span>Log Out</i></span>
+                                aria-expanded="false" >
+                                <span><i data-feather="settings" class="svg-icon op-7"></i></span>
                                 <span class="badge badge-danger badge-no rounded-circle"></span>
                             </a>
                         </div>
                         <div class="col-4 border-right">
-                            <a class="p-3 d-block menubar-height" id="bottom-sidebar" href="javascript:void(0)"
+                            <a class="p-3 d-block menubar-height" id="bottom-sidebar" href="../logout.php"
                                 role="button">
-                                <span><i data-feather="settings" class="svg-icon op-7"></i></span>
+                                <span>Log Out</span>
                             </a>
                         </div>
                         <div class="col-4">
@@ -137,6 +137,7 @@
                                 data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span><i data-feather="message-square" class="svg-icon op-7"></i></span>
                             </a>
+                        
                         </div>
                     </div>
                 </div>
@@ -229,7 +230,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Siswa</label>
-                                    <input type="text" class="form-control" name="name">
+                                    <input type="text" class="form-control" name="nama">
                                 </div>
                                 <div class="form-group">
                                     <label>Tempat Lahir</label>

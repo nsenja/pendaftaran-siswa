@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,50 +9,42 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+	
 	<link rel="stylesheet" href="css/style.css">
 
 	</head>
 	<body>
 	<?php
-include 'config.php';
-// If form submitted, insert values into the database.
-if (isset($_REQUEST['username'])) {
-    // removes backslashes
-    $username = stripslashes($_REQUEST['username']);
-    //escapes special characters in a string
-    $username = mysqli_real_escape_string($con, $username);
-    $email = stripslashes($_REQUEST['email']);
-    $email = mysqli_real_escape_string($con, $email);
-    $password = stripslashes($_REQUEST['password']);
-    $password = mysqli_real_escape_string($con, $password);
-    $query = "INSERT into `users` (username, password, email)
-VALUES ('$username', '" . md5($password) . "', '$email', '$trn_date')";
-    $result = mysqli_query($con, $query);
-    if ($result) {
-        echo "<div class='form'>
-<h3>You are registered successfully.</h3>
-<br/>Click here to <a href='login.php'>Login</a></div>";
-    }
-}
-?>
+	// menampilkan pesan kesalahan/validasi
+	if(isset($_SESSION['pesan'])){
+	echo $_SESSION['pesan'];
+	unset($_SESSION['pesan']);
+	}
+	// apa bila login berhasil tampilkan Pesan 
+	if (isset($_SESSION['username'])&&(isset($_SESSION['password']))){
+	echo "Selamat Anda berhasil login sebagai : ".$_SESSION['password']." ";
+	echo '<a href=\'logout.php\'>LogOut</a><br />';
+	}else{
+	// apabila login gagal lanjut tampilkan form login
+	?>
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
 					<h2 class="heading-section"></h2>
+					<form action="cek_login_siswa.php" method="POST">
 				</div>
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap py-5">
 		      	<div class="img d-flex align-items-center justify-content-center" style="background-image: url(images/bg.jpg);"></div>
-		      	<h3 class="text-center mb-0">REGISTER</h3>
-		      	<p class="text-center">Sign Up by entering the information below</p>
-						<form action="cek_register.php" class="login-form">
+		      	<h3 class="text-center mb-0">LOGIN</h3>
+		      	<p class="text-center">Sign in by entering the information below</p>
+						<form action="cek_login_siswa.php" class="login-form">
 		      		<div class="form-group">
 		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
-		      			<input type="text" class="form-control" name="username" placeholder="Username" required>
+		      			<input type="text" class="form-control" name="username"placeholder="Username" required>
 		      		</div>
 	            <div class="form-group">
 	            	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
@@ -63,12 +56,13 @@ VALUES ('$username', '" . md5($password) . "', '$email', '$trn_date')";
 								</div>
 	            </div>
 	            <div class="form-group">
-	            	<button type="submit" name="submit"class="btn form-control btn-primary rounded submit px-3">Register</button>
+	            	<button type="submit" class="btn form-control btn-primary rounded submit px-3">Get Started</button>
 	            </div>
 	          </form>
+			  <?php } ?>
 	          <div class="w-100 text-center mt-4 text">
-	          	<p class="mb-0">Have an account?</p>
-		          <a href="login.php">Sign In</a>
+	          	<p class="mb-0">Don't have an account?</p>
+		          <a href="register_siswa.php">Sign Up</a>
 	          </div>
 	        </div>
 				</div>

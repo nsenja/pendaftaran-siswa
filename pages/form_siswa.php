@@ -115,8 +115,8 @@
                     </div>
                 </div>
                 <div class="profile-section">
-                    <p class="font-weight-light mb-0 font-18">Sandra Phillip</p>
-                    <span class="op-7 font-14">Admin</span>
+                    <p class="font-weight-light mb-0 font-18">Hai</p>
+                    <span class="op-7 font-14">Siswa</span>
                     <div class="row border-top border-bottom mt-3 no-gutters">
                     <div class="col-4 border-right">
                             <a class="p-3 d-block menubar-height" id="bell"
@@ -137,7 +137,7 @@
                                 data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span><i data-feather="message-square" class="svg-icon op-7"></i></span>
                             </a>
-                      
+                        
                         </div>
                     </div>
                 </div>
@@ -149,23 +149,16 @@
                     <ul id="sidebarnav">
                         <li class="nav-small-cap"><span class="hide-menu">Pages</span></li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="beranda.php" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link" href="beranda_siswa.php" aria-expanded="false">
                                 <i data-feather="home" class="feather-icon"></i>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="siswa.php" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link" href="form_siswa.php" aria-expanded="false">
                                 <i data-feather="users" class="feather-icon"></i>
                                 <span class="hide-menu">Pendaftaran</span>
                             </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="user.php" aria-expanded="false">
-                                <i data-feather="grid" class="feather-icon"></i>
-                                <span class="hide-menu">Data Siswa</span>
-                            </a>
-                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -195,6 +188,8 @@
                             </nav>
                         </div>
                     </div>
+                    <div class="col-5 align-self-center">
+                    </div>
                 </div>
             </div>
             <!-- ============================================================== -->
@@ -212,66 +207,57 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title mb-4">Data Siswa</h4>
+                                <h4 class="card-title mb-4">Tambah Pendaftaran</h4>
                                 <div class="table-responsive">
                                     <table class="table no-wrap v-middle mb-0">
                                         <thead>
 										<div class="col-12">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead class="thead-light">
-                                    <tr>
-                                   
-                                            <th scope="col">Nomor Induk Siswa</th>
-                                            <th scope="col">Nama</th>
-                                            <th scope="col">Tempat Lahir</th>
-                                            <th scope="col">Tanggal Lahir</th>
-                                            <th scope="col">Jenis Kelamin</th>
-                                            <th scope="col">Asal Sekolah</th>
-                                            <th scope="col">Alamat</th>
-                                            <th scope="col">Nilai</th>
-                                            <th scope="col">Action</th>
-                                        </tr>
-
-                                        <tbody>
-
-<?php
-include ('../config.php');
-$sql = "SELECT * FROM calon_siswa ORDER BY nama";
-$query = mysqli_query($db, $sql);
-
-while($siswa = mysqli_fetch_array($query)){
-    echo "<tr>";
-  
-    echo "<td>".$siswa['nis']."</td>";
-    echo "<td>".$siswa['nama']."</td>";
-    echo "<td>".$siswa['tempat_lahir']."</td>";
-    echo "<td>".$siswa['tgl_lahir']."</td>";
-    echo "<td>".$siswa['jenis_kelamin']."</td>";
-    echo "<td>".$siswa['asal_sekolah']."</td>";
-    echo "<td>".$siswa['alamat']."</td>";
-    echo "<td>".$siswa['nilai']."</td>";
-
-    echo "<td>";
-    echo "<a href='siswa-edit.php?nis=".$siswa['nis']."'>Edit</a> | ";
-    echo "<a href='../proses/siswa-hapus-proses.php?nis=".$siswa['nis']."'>Hapus</a>";
-    echo "</td>";
-
-    echo "</tr>";
-}
-?>
-
-</tbody>
-</table>
-
-<p>Total: <?php echo mysqli_num_rows($query) ?></p>
-                                    </thead>
-                                    <tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                                
+                                        <form action="../proses/siswa-input-proses copy.php" method="POST" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                <div class="form-group">
+                                    <label>Nomor Induk</label>
+                                    <input type="text" class="form-control" name="nis">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nama Siswa</label>
+                                    <input type="text" class="form-control" name="nama">
+                                </div>
+                                <div class="form-group">
+                                    <label>Tempat Lahir</label>
+                                    <input type="text" class="form-control" name="tempat_lahir">
+                                </div>
+                                <div class="form-group">
+                                    <label>Tanggal Lahir</label>
+                                    <input type="date" class="form-control" name="tgl_lahir">
+                                </div>
+                                <div class="form-group">
+                                    <label>Jenis Kelamin</label> <br>
+                                    <input type="radio" name="jenis_kelamin" value="Laki-laki"> Laki-laki<br>
+                                    <input type="radio"  name="jenis_kelamin" value="Perempuan"> Perempuan<br>
+                                </div>
+                                <div class="form-group">
+                                    <label>Asal Sekolah</label>
+                                    <input type="text" class="form-control" name="asal_sekolah">
+                                </div>
+                                <div class="form-group">
+                                    <label>Alamat</label>
+                                    <input type="text" class="form-control" name="alamat">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nilai</label> <br>
+                                    <input type="text" class="form-control" name="nilai">
+                                </div>
+                                <div class="form-group">
+                                    <label>Status</label> <br>
+                                    <select name="status"class="form-control">
+                                    <option value="Menunggu Konfirmasi">Menunggu Konfirmasi</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <a href="beranda_siswa.php" class="btn btn-secondary">Cancel</a>
+                                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->

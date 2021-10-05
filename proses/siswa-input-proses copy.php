@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
 		VALUES('$nis','$nama','$tempat_lahir', '$tgl_lahir ','$jenis_kelamin','$asal_sekolah','$alamat','$nilai','$status')";
     $query = mysqli_query($db, $sql);
     // mysqli_query($db, "INSERT INTO pendaftaran (id_daftar, first_name, last_name, tgldaftar) VALUES ('$id_daftar', '$first_name', '$last_name', '$tgldaftar')");
-    header("location:../pages/beranda.php");
+    header("location:../pages/beranda_siswa.php");
 } else {
     header('Location:../index.php?status=gagal');
 }

@@ -127,7 +127,7 @@
                             </a>
                         </div>
                         <div class="col-4 border-right">
-                            <a class="p-3 d-block menubar-height" id="bottom-sidebar" href="/logout.php"
+                            <a class="p-3 d-block menubar-height" id="bottom-sidebar" href="../logout.php"
                                 role="button">
                                 <span>Log Out</span>
                             </a>
@@ -184,11 +184,11 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Welcome!</h3>
+                        <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Sistem Informasi Pendaftaran</h3>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
-                                    <li class="breadcrumb-item"><a href="pages/beranda.php" class="text-muted">Dashboard</a>
+                                    <li class="breadcrumb-item"><a href="pages/beranda.php" class="text-muted">SMA Negeri Malang</a>
                                     </li>
                                 </ol>
                             </nav>
@@ -221,7 +221,7 @@
                                 <table class="table">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th scope="col">No</th>
+                                           
                                             <th scope="col">Nomor Induk Siswa</th>
                                             <th scope="col">Nama</th>
                                             <th scope="col">Tempat Lahir</th>
@@ -243,7 +243,7 @@
 
                                         while ($siswa = mysqli_fetch_array($query)) {
                                             echo "<tr>";
-                                            echo "<td>" . $siswa['id'] . "</td>";
+                                            
                                             echo "<td>" . $siswa['nis'] . "</td>";
                                             echo "<td>" . $siswa['nama'] . "</td>";
                                             echo "<td>" . $siswa['tempat_lahir'] . "</td>";

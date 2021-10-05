@@ -117,18 +117,18 @@
                     <p class="font-weight-light mb-0 font-18">Sandra Phillip</p>
                     <span class="op-7 font-14">Admin</span>
                     <div class="row border-top border-bottom mt-3 no-gutters">
-                        <div class="col-4 border-right">
-                        <a class="p-3 d-block menubar-height" href="login.php" id="bell"
+                    <div class="col-4 border-right">
+                            <a class="p-3 d-block menubar-height" id="bell"
                                 data-display="static" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                <span>Log Out</i></span>
+                                aria-expanded="false" >
+                                <span><i data-feather="settings" class="svg-icon op-7"></i></span>
                                 <span class="badge badge-danger badge-no rounded-circle"></span>
                             </a>
                         </div>
                         <div class="col-4 border-right">
-                            <a class="p-3 d-block menubar-height" id="bottom-sidebar" href="javascript:void(0)"
+                            <a class="p-3 d-block menubar-height" id="bottom-sidebar" href="../logout.php"
                                 role="button">
-                                <span><i data-feather="settings" class="svg-icon op-7"></i></span>
+                                <span>Log Out</span>
                             </a>
                         </div>
                         <div class="col-4">
@@ -207,28 +207,28 @@
                 <!-- *************************************************************** -->
                 <!-- Start Earnings & Carousel Widget -->
                 <!-- *************************************************************** -->
-				<?php
-// koneksi database
-include "../config.php";
+                <?php
+                // koneksi database
+                include "../config.php";
 
-// cek id di query string
-if (!isset($_GET['id'])) {
-    header('location: pages/beranda.php');
-}
+                // cek id di query string
+                if (!isset($_GET['nis'])) {
+                    header('location: pages/beranda.php');
+                }
 
-// ambil id dari query string
-$id = $_GET['id'];
+                // ambil id dari query string
+                $nis = $_GET['nis'];
 
-// buat query untuk mengambil data data dari database
-$sql = "SELECT * FROM calon_siswa WHERE id=$id";
-$query = mysqli_query($db, $sql);
-$siswa = mysqli_fetch_assoc($query);
+                // buat query untuk mengambil data data dari database
+                $sql = "SELECT * FROM calon_siswa WHERE nis= $nis";
+                $query = mysqli_query($db, $sql);
+                $siswa = mysqli_fetch_assoc($query);
 
-// jika data yang diedit tidak ditemukan
-if (mysqli_num_rows($query) < 1) {
-    die("Data tidak ditemukan..");
-}
-?>
+                // jika data yang diedit tidak ditemukan
+                if (mysqli_num_rows($query) < 1) {
+                    die("Data tidak ditemukan..");
+                }
+                ?>
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -239,17 +239,13 @@ if (mysqli_num_rows($query) < 1) {
                                         <thead>
 										<div class="col-12">
                                         <form action="../proses/siswa-edit-proses.php" method="POST" enctype="multipart/form-data">
-										<!-- <div class="form-group">
-                                    <label>ID</label>
-                                    <input type="text" class="form-control" name="id" value="<?php echo $siswa['id']; ?>">
-									</div> -->
-										<div class="form-group">
+								<div class="form-group">
                                     <label>Nomor Induk</label>
                                     <input type="text" class="form-control" name="nis" value="<?php echo $siswa['nis']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Siswa</label>
-                                    <input type="text" class="form-control" name="name"value="<?php echo $siswa['nama']; ?>">
+                                    <input type="text" class="form-control" name="nama"value="<?php echo $siswa['nama']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Tempat Lahir</label>
@@ -261,8 +257,8 @@ if (mysqli_num_rows($query) < 1) {
                                 </div>
                                 <div class="form-group">
                                     <label>Jenis Kelamin</label> <br>
-                                    <input type="radio" name="jenis_kelamin" value="Laki-laki"<?php echo ($siswa == 'jenis_kelamin') ? "checked" : "" ?>> Laki-laki<br>
-                                    <input type="radio"  name="jenis_kelamin" value="Perempuan"<?php echo ($siswa == 'jenis_kelamin') ? "checked" : "" ?>> Perempuan<br>
+                                    <input type="radio" name="jenis_kelamin" value="Laki-laki"<?php echo $siswa ['jenis_kelamin'];?>> Laki-laki<br>
+                                    <input type="radio"  name="jenis_kelamin" value="Perempuan"<?php echo ($siswa == 'jenis_kelamin') ? "checked" : "buvb" ?>> Perempuan<br>
                                 </div>
                                 <div class="form-group">
                                     <label>Asal Sekolah</label>
@@ -270,7 +266,7 @@ if (mysqli_num_rows($query) < 1) {
                                 </div>
                                 <div class="form-group">
                                     <label>Alamat</label>
-									<input type="text" class="form-control" name="asal_sekolah"value="<?php echo $siswa['alamat']; ?>">
+									<input type="text" class="form-control" name="alamat" value="<?php echo $siswa['alamat']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Nilai</label> <br>
@@ -280,14 +276,14 @@ if (mysqli_num_rows($query) < 1) {
                                     <label>Status</label> <br>
                                     <select name="status"class="form-control">
                                     <option value="Diterima"value="<?php echo $siswa['status']; ?>">Diterima</option>
-                                    <option value="Tidak Diterima">Tidak Diterima</option>
-                                    <option value="Cadangan">Cadangan</option>
+                                    <option value="Tidak Diterima"value="<?php echo $siswa['status']; ?>">Tidak Diterima</option>
+                                    <option value="Cadangan"value="<?php echo $siswa['status']; ?>">Cadangan</option>
                                     </select>
                                     <!-- <input type="text" class="form-control" name="status"> -->
                                 </div>
                                 <div class="form-group">
                                     <a href="beranda.php" class="btn btn-secondary">Cancel</a>
-                                    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                                    <button type="submit" class="btn btn-primary" name="submit" value="submit" >Submit</button>
                                 </div>
                             </form>
             </div>
