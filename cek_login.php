@@ -13,6 +13,7 @@ if (isset($_POST['username']) && ($_POST['password'])) {
         $row = $result->fetch_object();
         $_SESSION['username'] = $row->username;
         $_SESSION['password'] = $row->password;
+        return header("location:pages/beranda.php");
 
     } else {
         $_SESSION['pesan'] = "Username atau Password salah";
@@ -21,5 +22,4 @@ if (isset($_POST['username']) && ($_POST['password'])) {
 } else {
     $_SESSION['pesan'] = "Username atau password tidak boleh kosong";
 }
-
-header("location:pages/beranda.php");
+return header("location:login.php");
