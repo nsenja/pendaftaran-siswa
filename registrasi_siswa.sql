@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2021 at 11:39 AM
+-- Generation Time: Oct 05, 2021 at 03:08 PM
 -- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.0
+-- PHP Version: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,22 +28,36 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `calon_siswa` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(64) NOT NULL,
-  `alamat` varchar(255) NOT NULL,
+  `nis` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `tempat_lahir` varchar(255) NOT NULL,
+  `tgl_lahir` date NOT NULL,
   `jenis_kelamin` varchar(16) NOT NULL,
-  `agama` varchar(16) NOT NULL,
-  `asal_sekolah` varchar(64) NOT NULL
+  `asal_sekolah` varchar(64) NOT NULL,
+  `nilai` int(11) NOT NULL,
+  `alamat` varchar(255) NOT NULL,
+  `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `calon_siswa`
 --
 
-INSERT INTO `calon_siswa` (`id`, `nama`, `alamat`, `jenis_kelamin`, `agama`, `asal_sekolah`) VALUES
-(2, 'Said', 'Garut', 'Laki-Laki', 'Islam', 'SMK Cijangkar'),
-(3, 'Vijey', 'Sukabumi', 'Laki-Laki', 'Islam', 'SMK Random'),
-(5, 'Kiw', 'Bandung', 'laki-laki', 'islam', 'SMK MVP');
+INSERT INTO `calon_siswa` (`nis`, `nama`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `asal_sekolah`, `nilai`, `alamat`, `status`) VALUES
+(194172456, 'Budi', 'Malang', '2000-09-23', 'Laki-laki', 'smp malang', 87, 'alamat', 'Diterima'),
+(200395236, 'mutia', 'kediri', '2001-05-04', 'Perempuan', 'smpn 2', 0, '88', 'Menunggu Konfirmasi'),
+(1941720145, 'Budi', 'Malang', '2000-09-23', 'Laki-laki', 'SMP5', 88, 'Mlang', 'Diterima');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -53,17 +67,7 @@ INSERT INTO `calon_siswa` (`id`, `nama`, `alamat`, `jenis_kelamin`, `agama`, `as
 -- Indexes for table `calon_siswa`
 --
 ALTER TABLE `calon_siswa`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `calon_siswa`
---
-ALTER TABLE `calon_siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  ADD PRIMARY KEY (`nis`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
