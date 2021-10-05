@@ -218,7 +218,11 @@
                                     <table class="table no-wrap v-middle mb-0">
                                         <thead>
 										<div class="col-12">
-                                        <form action="proses/siswa-input-proses.php" method="POST" enctype="multipart/form-data">
+                                        <form action="../proses/siswa-input-proses.php" method="POST" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                    <!-- <label>ID</label>
+                                    <input type="text" class="form-control" name="id">
+                                </div> -->
                                 <div class="form-group">
                                     <label>Nomor Induk</label>
                                     <input type="text" class="form-control" name="nis">
@@ -228,8 +232,12 @@
                                     <input type="text" class="form-control" name="name">
                                 </div>
                                 <div class="form-group">
-                                    <label>Tempat, Tanggal Lahir</label>
-                                    <input type="date" class="form-control" name="ttl">
+                                    <label>Tempat Lahir</label>
+                                    <input type="text" class="form-control" name="tempat_lahir">
+                                </div>
+                                <div class="form-group">
+                                    <label>Tanggal Lahir</label>
+                                    <input type="date" class="form-control" name="tgl_lahir">
                                 </div>
                                 <div class="form-group">
                                     <label>Jenis Kelamin</label> <br>
@@ -242,7 +250,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Alamat</label>
-                                    <textarea type="text" class="form-control" name="alamat"></textarea>
+                                    <input type="text" class="form-control" name="alamat">
                                 </div>
                                 <div class="form-group">
                                     <label>Nilai</label> <br>
@@ -259,7 +267,7 @@
                                 </div>
                                 <div class="form-group">
                                     <a href="beranda.php" class="btn btn-secondary">Cancel</a>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
             </div>

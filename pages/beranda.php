@@ -119,17 +119,17 @@
                     <span class="op-7 font-14">Admin</span>
                     <div class="row border-top border-bottom mt-3 no-gutters">
                         <div class="col-4 border-right">
-                            <a class="p-3 d-block menubar-height" href="login.php" id="bell"
+                            <a class="p-3 d-block menubar-height" id="bell"
                                 data-display="static" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                <span>Log Out</i></span>
+                                aria-expanded="false" >
+                                <span><i data-feather="settings" class="svg-icon op-7"></i></span>
                                 <span class="badge badge-danger badge-no rounded-circle"></span>
                             </a>
                         </div>
                         <div class="col-4 border-right">
-                            <a class="p-3 d-block menubar-height" id="bottom-sidebar" href="javascript:void(0)"
+                            <a class="p-3 d-block menubar-height" id="bottom-sidebar" href="/logout.php"
                                 role="button">
-                                <span><i data-feather="settings" class="svg-icon op-7"></i></span>
+                                <span>Log Out</span>
                             </a>
                         </div>
                         <div class="col-4">
@@ -206,7 +206,7 @@
                 <!-- *************************************************************** -->
                 <!-- Start Earnings & Carousel Widget -->
                 <!-- *************************************************************** -->
-            
+
 
                 <div class="row">
                     <div class="col-12">
@@ -221,14 +221,55 @@
                                 <table class="table">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
+                                            <th scope="col">No</th>
+                                            <th scope="col">Nomor Induk Siswa</th>
+                                            <th scope="col">Nama</th>
+                                            <th scope="col">Tempat Lahir</th>
+                                            <th scope="col">Tanggal Lahir</th>
+                                            <th scope="col">Jenis Kelamin</th>
+                                            <th scope="col">Asal Sekolah</th>
+                                            <th scope="col">Alamat</th>
+                                            <th scope="col">Nilai</th>
+                                            <th scope="col">Status</th>
+                                            <!-- <th scope="col">Action</th> -->
                                         </tr>
+
+                                        <tbody>
+
+                                        <?php
+                                        include '../config.php';
+                                        $sql = "SELECT * FROM calon_siswa ORDER BY nama";
+                                        $query = mysqli_query($db, $sql);
+
+                                        while ($siswa = mysqli_fetch_array($query)) {
+                                            echo "<tr>";
+                                            echo "<td>" . $siswa['id'] . "</td>";
+                                            echo "<td>" . $siswa['nis'] . "</td>";
+                                            echo "<td>" . $siswa['nama'] . "</td>";
+                                            echo "<td>" . $siswa['tempat_lahir'] . "</td>";
+                                            echo "<td>" . $siswa['tgl_lahir'] . "</td>";
+                                            echo "<td>" . $siswa['jenis_kelamin'] . "</td>";
+                                            echo "<td>" . $siswa['asal_sekolah'] . "</td>";
+                                            echo "<td>" . $siswa['alamat'] . "</td>";
+                                            echo "<td>" . $siswa['nilai'] . "</td>";
+                                            echo "<td>" . $siswa['status'] . "</td>";
+
+                                            echo "<td>";
+                                            // echo "<a href='siswa-edit.php?id=" . $siswa['id'] . "'>Edit</a> | ";
+                                            // echo "<a href='/proses/siswa-hapus-proses.php?id=" . $siswa['id'] . "'>Hapus</a>";
+                                            echo "</td>";
+
+                                            echo "</tr>";
+                                        }
+                                        ?>
+
+                                        </tbody>
+                                        </table>
+
+                                        <p>Total: <?php echo mysqli_num_rows($query) ?></p>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <!-- <tr>
                                             <th scope="row">1</th>
                                             <td>Mark</td>
                                             <td>Otto</td>
@@ -245,157 +286,13 @@
                                             <td>Larry</td>
                                             <td>the Bird</td>
                                             <td>@twitter</td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                                            <!-- <tr class="border-0">
-                                                <th class="border-0 font-weight-medium text-muted">Team Lead</th>
-                                                <th class="border-0 font-weight-medium text-muted px-2">Project</th>
-                                                <th class="border-0 font-weight-medium text-muted">Team</th>
-                                                <th class="border-0 font-weight-medium text-muted text-center">Status
-                                                </th>
-                                                <th class="border-0 font-weight-medium text-muted text-center">Weeks
-                                                </th>
-                                                <th class="border-0 font-weight-medium text-muted">Budget</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="border-top-0 p-2">
-                                                    <div class="d-flex no-block align-items-center">
-                                                        <div class="mr-3"><img
-                                                                src="../assets/images/users/widget-table-pic1.jpg"
-                                                                alt="user" class="rounded-circle" width="45"
-                                                                height="45" /></div>
-                                                        <div class="">
-                                                            <h5 class="mb-0 font-16 font-weight-medium">Hanna Gover</h5>
-                                                            <span class="text-muted">hgover@gmail.com</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="border-top-0 text-muted p-2">Elite Admin</td>
-                                                <td class="border-top-0">
-                                                    <div class="popover-icon">
-                                                        <a class="btn btn-light-info rounded-circle btn-circle text-dark"
-                                                            href="javascript:void(0)">DS</a>
-                                                        <a class="btn btn-light-danger rounded-circle btn-circle text-dark popover-item"
-                                                            href="javascript:void(0)">SS</a>
-                                                        <a class="btn btn-light-warning rounded-circle btn-circle text-dark popover-item"
-                                                            href="javascript:void(0)">RP</a>
-                                                        <a class="btn btn-light-success rounded-circle btn-circle text-success font-20"
-                                                            href="javascript:void(0)">+</a>
-                                                    </div>
-                                                </td>
-                                                <td class="border-top-0 text-center"><i class="fa fa-circle text-info"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        title="In Testing"></i></td>
-                                                <td class="border-top-0 text-center font-weight-medium text-muted">35
-                                                </td>
-                                                <td class="font-weight-medium text-dark border-top-0">$96K</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="p-2">
-                                                    <div class="d-flex no-block align-items-center">
-                                                        <div class="mr-3"><img
-                                                                src="../assets/images/users/widget-table-pic2.jpg"
-                                                                alt="user" class="rounded-circle" width="45"
-                                                                height="45" /></div>
-                                                        <div class="">
-                                                            <h5 class="mb-0 font-16 font-weight-medium">Daniel Kristeen
-                                                            </h5>
-                                                            <span class="text-muted">Kristeen@gmail.com</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-muted p-2">Real Homes WP Theme</td>
-                                                <td>
-                                                    <div class="popover-icon">
-                                                        <a class="btn btn-light-info rounded-circle btn-circle text-dark"
-                                                            href="javascript:void(0)">DS</a>
-                                                        <a class="btn btn-light-danger rounded-circle btn-circle text-dark popover-item"
-                                                            href="javascript:void(0)">SS</a>
-                                                        <a class="btn btn-light-success rounded-circle btn-circle text-success font-20"
-                                                            href="javascript:void(0)">+</a>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center"><i class="fa fa-circle text-success"
-                                                        data-toggle="tooltip" data-placement="top" title="Done"></i>
-                                                </td>
-                                                <td class="text-center text-muted font-weight-medium">32</td>
-                                                <td class="font-weight-medium text-dark">$85K</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="p-2">
-                                                    <div class="d-flex no-block align-items-center">
-                                                        <div class="mr-3"><img
-                                                                src="../assets/images/users/widget-table-pic3.jpg"
-                                                                alt="user" class="rounded-circle" width="45"
-                                                                height="45" /></div>
-                                                        <div class="">
-                                                            <h5 class="mb-0 font-16 font-weight-medium">Julian Josephs
-                                                            </h5>
-                                                            <span class="text-muted">Josephs@gmail.com</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-muted p-2">MedicalPro WP Theme</td>
-                                                <td>
-                                                    <div class="popover-icon">
-                                                        <a class="btn btn-light-info rounded-circle btn-circle text-dark"
-                                                            href="javascript:void(0)">DS</a>
-                                                        <a class="btn btn-light-danger rounded-circle btn-circle text-dark popover-item"
-                                                            href="javascript:void(0)">SS</a>
-                                                        <a class="btn btn-light-warning rounded-circle btn-circle text-dark popover-item"
-                                                            href="javascript:void(0)">RP</a>
-                                                        <a class="btn btn-light-success rounded-circle btn-circle text-success font-20"
-                                                            href="javascript:void(0)">+</a>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center"><i class="fa fa-circle text-danger"
-                                                        data-toggle="tooltip" data-placement="top" title="Done"></i>
-                                                </td>
-                                                <td class="text-center text-muted font-weight-medium">29</td>
-                                                <td class="font-weight-medium text-dark">$81K</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="p-2">
-                                                    <div class="d-flex no-block align-items-center">
-                                                        <div class="mr-3"><img
-                                                                src="../assets/images/users/widget-table-pic4.jpg"
-                                                                alt="user" class="rounded-circle" width="45"
-                                                                height="45" /></div>
-                                                        <div class="">
-                                                            <h5 class="mb-0 font-16 font-weight-medium">Jan Petrovic
-                                                            </h5>
-                                                            <span class="text-muted">hgover@gmail.com</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-muted p-2">Hosting Press HTML</td>
-                                                <td>
-                                                    <div class="popover-icon">
-                                                        <a class="btn btn-light-info rounded-circle btn-circle text-dark"
-                                                            href="javascript:void(0)">DS</a>
-                                                        <a class="btn btn-light-cyan rounded-circle btn-circle text-success font-20"
-                                                            href="javascript:void(0)">+</a>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center"><i class="fa fa-circle text-warning"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        title="In Progress"></i></td>
-                                                <td class="text-center text-muted font-weight-medium">23</td>
-                                                <td class="font-weight-medium text-dark">$80K</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+
                 <!-- *************************************************************** -->
                 <!-- End Top Leader Table -->
                 <!-- *************************************************************** -->

@@ -211,7 +211,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title mb-4">Hasil Seleksi</h4>
+                                <h4 class="card-title mb-4">Data Siswa</h4>
                                 <div class="table-responsive">
                                     <table class="table no-wrap v-middle mb-0">
                                         <thead>
@@ -219,34 +219,53 @@
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead class="thead-light">
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
+                                    <tr>
+                                       
+                                            <th scope="col">Nomor Induk Siswa</th>
+                                            <th scope="col">Nama</th>
+                                            <th scope="col">Tempat Lahir</th>
+                                            <th scope="col">Tanggal Lahir</th>
+                                            <th scope="col">Jenis Kelamin</th>
+                                            <th scope="col">Asal Sekolah</th>
+                                            <th scope="col">Alamat</th>
+                                            <th scope="col">Nilai</th>
                                             <th scope="col">Action</th>
                                         </tr>
+
+                                        <tbody>
+
+<?php
+include ('../config.php');
+$sql = "SELECT * FROM calon_siswa ORDER BY nilai";
+$query = mysqli_query($db, $sql);
+
+while($siswa = mysqli_fetch_array($query)){
+    echo "<tr>";
+
+    echo "<td>".$siswa['nis']."</td>";
+    echo "<td>".$siswa['nama']."</td>";
+    echo "<td>".$siswa['tempat_lahir']."</td>";
+    echo "<td>".$siswa['tgl_lahir']."</td>";
+    echo "<td>".$siswa['jenis_kelamin']."</td>";
+    echo "<td>".$siswa['asal_sekolah']."</td>";
+    echo "<td>".$siswa['alamat']."</td>";
+    echo "<td>".$siswa['nilai']."</td>";
+
+    echo "<td>";
+    echo "<a href='siswa-edit.php?id=".$siswa['id']."'>Edit</a> | ";
+    echo "<a href='../proses/siswa-hapus-proses.php?id=".$siswa['id']."'>Hapus</a>";
+    echo "</td>";
+
+    echo "</tr>";
+}
+?>
+
+</tbody>
+</table>
+
+<p>Total: <?php echo mysqli_num_rows($query) ?></p>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
-                                    </tbody>
                                 </table>
                             </div>
                         </div>
