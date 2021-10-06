@@ -228,7 +228,7 @@
                                             <th scope="col">Tanggal Lahir</th>
                                             <th scope="col">Jenis Kelamin</th>
                                             <th scope="col">Asal Sekolah</th>
-                                            <th scope="col">Alamat</th>
+                                            <!-- <th scope="col">Alamat</th> -->
                                             <th scope="col">Nilai</th>
                                             <th scope="col">Status</th>
                                             <!-- <th scope="col">Action</th> -->
@@ -250,7 +250,7 @@
                                             echo "<td>" . $siswa['tgl_lahir'] . "</td>";
                                             echo "<td>" . $siswa['jenis_kelamin'] . "</td>";
                                             echo "<td>" . $siswa['asal_sekolah'] . "</td>";
-                                            echo "<td>" . $siswa['alamat'] . "</td>";
+                                            // echo "<td>" . $siswa['alamat'] . "</td>";
                                             echo "<td>" . $siswa['nilai'] . "</td>";
                                             echo "<td>" . $siswa['status'] . "</td>";
 

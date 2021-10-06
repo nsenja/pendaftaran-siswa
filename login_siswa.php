@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,19 +13,7 @@
 
 	</head>
 	<body>
-	<?php
-	// menampilkan pesan kesalahan/validasi
-	if(isset($_SESSION['pesan'])){
-	echo $_SESSION['pesan'];
-	unset($_SESSION['pesan']);
-	}
-	// apa bila login berhasil tampilkan Pesan 
-	if (isset($_SESSION['username'])&&(isset($_SESSION['password']))){
-	echo "Selamat Anda berhasil login sebagai : ".$_SESSION['password']." ";
-	echo '<a href=\'logout.php\'>LogOut</a><br />';
-	}else{
-	// apabila login gagal lanjut tampilkan form login
-	?>
+	
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -59,7 +46,7 @@
 	            	<button type="submit" class="btn form-control btn-primary rounded submit px-3">Get Started</button>
 	            </div>
 	          </form>
-			  <?php } ?>
+		
 	          <div class="w-100 text-center mt-4 text">
 	          	<p class="mb-0">Don't have an account?</p>
 		          <a href="register_siswa.php">Sign Up</a>

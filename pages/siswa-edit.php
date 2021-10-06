@@ -264,10 +264,10 @@
                                     <label>Asal Sekolah</label>
                                     <input type="text" class="form-control" name="asal_sekolah"value="<?php echo $siswa['asal_sekolah']; ?>">
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Alamat</label>
 									<input type="text" class="form-control" name="alamat" value="<?php echo $siswa['alamat']; ?>">
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label>Nilai</label> <br>
                                     <input type="text" class="form-control" name="nilai" value="<?php echo $siswa['nilai']; ?>">

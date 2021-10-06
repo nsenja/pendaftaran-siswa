@@ -11,7 +11,7 @@
         $tgl_lahir = $_POST['tgl_lahir'];
         $jenis_kelamin = $_POST['jenis_kelamin'];
         $asal_sekolah = $_POST['asal_sekolah'];
-        $alamat = $_POST['alamat'];
+        // $alamat = $_POST['alamat'];
         $nilai = $_POST['nilai'];
         $status = $_POST['status'];
 
@@ -22,7 +22,7 @@
         tgl_lahir='$tgl_lahir',
         jenis_kelamin ='$jenis_kelamin',
         asal_sekolah='$asal_sekolah',
-        alamat='$alamat',
+        -- alamat='$alamat',
         nilai='$nilai',
         status='$status'
         WHERE nis = '$nis'";

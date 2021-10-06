@@ -27,6 +27,10 @@
 			<td class="isian-formulir"><textarea rows="2" cols="40" name="alamat" class="isian-formulir isian-formulir-border"></textarea></td>
 		</tr>
 		<tr>
+			<td class="label-formulir">Nilai</td>
+			<td class="isian-formulir"><textarea rows="2" cols="40" name="nilai" class="isian-formulir isian-formulir-border"></textarea></td>
+		</tr>
+		<tr>
 			<td class="label-formulir">Status</td>
 			<td class="isian-formulir"><input type="radio" name="status" value="Diterima">Diterima</label></td>
 		</tr>

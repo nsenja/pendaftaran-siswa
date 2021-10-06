@@ -48,8 +48,12 @@ VALUES ('$username', '" . md5($password) . "', '$email', '$trn_date')";
 		      	<div class="img d-flex align-items-center justify-content-center" style="background-image: url(images/bg.jpg);"></div>
 		      	<h3 class="text-center mb-0">REGISTER</h3>
 		      	<p class="text-center">Sign Up by entering the information below</p>
-						<form action="cek_register.php" class="login-form">
-		      		<div class="form-group">
+				  <form action="cek_register_siswa.php" class="login-form" method="POST">
+		      	<div class="form-group">
+		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
+		      			<input type="text" class="form-control" name="nama" placeholder="Name" required>
+		      		</div>
+				  <div class="form-group">
 		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
 		      			<input type="text" class="form-control" name="username" placeholder="Username" required>
 		      		</div>

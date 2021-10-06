@@ -214,51 +214,52 @@
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead class="thead-light">
-                                        <tr>
+                                    <tr>
                                            
-                                            <th scope="col">Nomor Induk Siswa</th>
-                                            <th scope="col">Nama</th>
-                                            <th scope="col">Tempat Lahir</th>
-                                            <th scope="col">Tanggal Lahir</th>
-                                            <th scope="col">Jenis Kelamin</th>
-                                            <th scope="col">Asal Sekolah</th>
-                                            <th scope="col">Alamat</th>
-                                            <th scope="col">Nilai</th>
-                                            <th scope="col">Status</th>
-                                            <!-- <th scope="col">Action</th> -->
-                                        </tr>
+                                           <th scope="col">Nomor Induk Siswa</th>
+                                           <th scope="col">Nama</th>
+                                           <th scope="col">Tempat Lahir</th>
+                                           <th scope="col">Tanggal Lahir</th>
+                                           <th scope="col">Jenis Kelamin</th>
+                                           <th scope="col">Asal Sekolah</th>
+                                           <!-- <th scope="col">Alamat</th> -->
+                                           <th scope="col">Nilai</th>
+                                           <th scope="col">Status</th>
+                                           <!-- <th scope="col">Action</th> -->
+                                       </tr>
 
-                                        <tbody>
+                                       <tbody>
 
-                                        <?php
-                                        include '../config.php';
-                                        $sql = "SELECT * FROM calon_siswa ORDER BY nama";
-                                        $query = mysqli_query($db, $sql);
+                                       <?php
+                                       include '../config.php';
+                                       $sql = "SELECT * FROM calon_siswa ORDER BY nama";
+                                       $query = mysqli_query($db, $sql);
 
-                                        while ($siswa = mysqli_fetch_array($query)) {
-                                            echo "<tr>";
-                                            
-                                            echo "<td>" . $siswa['nis'] . "</td>";
-                                            echo "<td>" . $siswa['nama'] . "</td>";
-                                            echo "<td>" . $siswa['tempat_lahir'] . "</td>";
-                                            echo "<td>" . $siswa['tgl_lahir'] . "</td>";
-                                            echo "<td>" . $siswa['jenis_kelamin'] . "</td>";
-                                            echo "<td>" . $siswa['asal_sekolah'] . "</td>";
-                                            echo "<td>" . $siswa['alamat'] . "</td>";
-                                            echo "<td>" . $siswa['nilai'] . "</td>";
-                                            echo "<td>" . $siswa['status'] . "</td>";
+                                       while ($siswa = mysqli_fetch_array($query)) {
+                                           echo "<tr>";
+                                           
+                                           echo "<td>" . $siswa['nis'] . "</td>";
+                                           echo "<td>" . $siswa['nama'] . "</td>";
+                                           echo "<td>" . $siswa['tempat_lahir'] . "</td>";
+                                           echo "<td>" . $siswa['tgl_lahir'] . "</td>";
+                                           echo "<td>" . $siswa['jenis_kelamin'] . "</td>";
+                                           echo "<td>" . $siswa['asal_sekolah'] . "</td>";
+                                        //    echo "<td>" . $siswa['alamat'] . "</td>";
+                                           echo "<td>" . $siswa['nilai'] . "</td>";
+                                           echo "<td>" . $siswa['status'] . "</td>";
 
-                                            echo "<td>";
-                                            // echo "<a href='siswa-edit.php?id=" . $siswa['id'] . "'>Edit</a> | ";
-                                            // echo "<a href='/proses/siswa-hapus-proses.php?id=" . $siswa['id'] . "'>Hapus</a>";
-                                            echo "</td>";
+                                           echo "<td>";
+                                           // echo "<a href='siswa-edit.php?id=" . $siswa['id'] . "'>Edit</a> | ";
+                                           // echo "<a href='/proses/siswa-hapus-proses.php?id=" . $siswa['id'] . "'>Hapus</a>";
+                                           echo "</td>";
 
-                                            echo "</tr>";
-                                        }
-                                        ?>
+                                           echo "</tr>";
+                                       }
+                                       ?>
 
-                                        </tbody>
-                                        </table>
+                                       </tbody>
+                                       </table>
+
 
                                         <p>Total: <?php echo mysqli_num_rows($query) ?></p>
                                     </thead>

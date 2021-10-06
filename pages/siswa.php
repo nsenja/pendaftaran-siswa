@@ -249,10 +249,10 @@
                                     <label>Asal Sekolah</label>
                                     <input type="text" class="form-control" name="asal_sekolah">
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Alamat</label>
                                     <input type="text" class="form-control" name="alamat">
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label>Nilai</label> <br>
                                     <input type="text" class="form-control" name="nilai">

@@ -137,7 +137,7 @@
                                 data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span><i data-feather="message-square" class="svg-icon op-7"></i></span>
                             </a>
-                      
+
                         </div>
                     </div>
                 </div>
@@ -207,7 +207,7 @@
                 <!-- *************************************************************** -->
                 <!-- Start Earnings & Carousel Widget -->
                 <!-- *************************************************************** -->
-              
+
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -221,57 +221,58 @@
                                 <table class="table">
                                     <thead class="thead-light">
                                     <tr>
-                                   
+
                                             <th scope="col">Nomor Induk Siswa</th>
                                             <th scope="col">Nama</th>
                                             <th scope="col">Tempat Lahir</th>
                                             <th scope="col">Tanggal Lahir</th>
                                             <th scope="col">Jenis Kelamin</th>
                                             <th scope="col">Asal Sekolah</th>
-                                            <th scope="col">Alamat</th>
+                                            <!-- <th scope="col">Alamat</th> -->
                                             <th scope="col">Nilai</th>
                                             <th scope="col">Action</th>
                                         </tr>
 
                                         <tbody>
 
-<?php
-include ('../config.php');
-$sql = "SELECT * FROM calon_siswa ORDER BY nama";
-$query = mysqli_query($db, $sql);
+                                <?php
+                                include '../config.php';
+                                $sql = "SELECT * FROM calon_siswa ORDER BY nama";
+                                $query = mysqli_query($db, $sql);
 
-while($siswa = mysqli_fetch_array($query)){
-    echo "<tr>";
-  
-    echo "<td>".$siswa['nis']."</td>";
-    echo "<td>".$siswa['nama']."</td>";
-    echo "<td>".$siswa['tempat_lahir']."</td>";
-    echo "<td>".$siswa['tgl_lahir']."</td>";
-    echo "<td>".$siswa['jenis_kelamin']."</td>";
-    echo "<td>".$siswa['asal_sekolah']."</td>";
-    echo "<td>".$siswa['alamat']."</td>";
-    echo "<td>".$siswa['nilai']."</td>";
+                                while ($siswa = mysqli_fetch_array($query)) {
+                                    echo "<tr>";
 
-    echo "<td>";
-    echo "<a href='siswa-edit.php?nis=".$siswa['nis']."'>Edit</a> | ";
-    echo "<a href='../proses/siswa-hapus-proses.php?nis=".$siswa['nis']."'>Hapus</a>";
-    echo "</td>";
+                                    echo "<td>" . $siswa['nis'] . "</td>";
+                                    echo "<td>" . $siswa['nama'] . "</td>";
+                                    echo "<td>" . $siswa['tempat_lahir'] . "</td>";
+                                    echo "<td>" . $siswa['tgl_lahir'] . "</td>";
+                                    echo "<td>" . $siswa['jenis_kelamin'] . "</td>";
+                                    echo "<td>" . $siswa['asal_sekolah'] . "</td>";
+                                    // echo "<td>".$siswa['alamat']."</td>";
+                                    echo "<td>" . $siswa['nilai'] . "</td>";
 
-    echo "</tr>";
-}
-?>
+                                    echo "<td>";
+                                    echo "<a href='siswa-edit.php?nis=" . $siswa['nis'] . "'>Edit</a> | ";
+                                    echo "<a href='../proses/siswa-hapus-proses.php?nis=" . $siswa['nis'] . "'>Hapus</a>";
+                                    echo "</td>";
+
+                                    echo "</tr>";
+                                }
+                                ?>
 
 </tbody>
 </table>
 
 <p>Total: <?php echo mysqli_num_rows($query) ?></p>
+
                                     </thead>
                                     <tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                                
+
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
